@@ -1,6 +1,7 @@
 import sys
 from PySide6 import QtWidgets
 
+
 class Main(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None):
@@ -10,19 +11,21 @@ class Main(QtWidgets.QMainWindow):
     def init_ui(self):
         self.text = QtWidgets.QTextEdit(self)
         self.setCentralWidget(self.text)
-        self.init_toolbar()
+        self.toolbar = self.init_toolbar()
         self.addToolBarBreak()
-        self.init_format_bar()
+        self.formatbar = self.init_format_bar()
         self.init_menubar()
         self.statusbar = self.statusBar()
         self.setGeometry(100, 100, 1030, 800)
         self.setWindowTitle("Qt Editor")
 
     def init_toolbar(self):
-        self.toolbar = self.addToolBar("Options")
+        toolbar = self.addToolBar("Options")
+        return toolbar
 
     def init_format_bar(self):
-        self.formatbar = self.addToolBar("Format")
+        formatbar = self.addToolBar("Format")
+        return formatbar
 
     def init_menubar(self):
         menubar = self.menuBar()
